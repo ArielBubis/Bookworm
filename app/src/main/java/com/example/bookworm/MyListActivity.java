@@ -1,11 +1,16 @@
 package com.example.bookworm;
 
+import android.os.Bundle;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 
 public class MyListActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private BooksAdapter booksAdapter;
+    private BookAdapter booksAdapter;
     private ArrayList<Book> myList;
 
     @Override
@@ -19,7 +24,7 @@ public class MyListActivity extends AppCompatActivity {
 
         // Initialize myList and booksAdapter
         myList = new ArrayList<>();
-        booksAdapter = new BooksAdapter(myList, this);
+        booksAdapter = new BookAdapter(myList, this);
 
         // Set the adapter for the RecyclerView
         recyclerView.setAdapter(booksAdapter);
