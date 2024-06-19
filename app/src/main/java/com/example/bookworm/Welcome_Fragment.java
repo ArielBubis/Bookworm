@@ -1,6 +1,8 @@
 package com.example.bookworm;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,13 +22,17 @@ public class Welcome_Fragment extends Fragment {
         browseBooksButton = view.findViewById(R.id.browseBooksButton);
         myListButton = view.findViewById(R.id.myListButton);
 
-//        browseBooksButton.setOnClickListener(new View.OnClickListener() {
-////            @Override
-////            public void onClick(View v) {
-////                Intent intent = new Intent(WelcomeActivity.this, BrowseBooksActivity.class);
-////                startActivity(intent);
-////            }
-//        });
+        browseBooksButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getParentFragmentManager();
+                BrowseBooksFragment browseBooks = new BrowseBooksFragment();
+                FragmentTransaction t = fm.beginTransaction();
+                t.replace(R.id.root_layout, browseBooks);
+                t.addToBackStack(null);
+                t.commit();
+            }
+        });
 
 
         myListButton.setOnClickListener(new View.OnClickListener() {

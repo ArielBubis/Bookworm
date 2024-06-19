@@ -31,5 +31,11 @@
             android:layout_height="wrap_content"
             android:textSize="14sp"
             android:paddingTop="4dp" />
+
+        <Button
+            android:id="@+id/button_addBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/add" />
     </LinearLayout>
 </androidx.cardview.widget.CardView>
