@@ -22,7 +22,10 @@ public class BrowseBooksFragment extends Fragment {
     private RecyclerView recyclerView;
     private BookAdapter booksAdapter;
 
-    private Button filterBtn;
+    private Button filterButton;
+
+    private Button clear_FilterButton;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -41,7 +44,7 @@ public class BrowseBooksFragment extends Fragment {
         // Set the adapter for the RecyclerView
         recyclerView.setAdapter(booksAdapter);
         // Inside your BrowseBooksFragment
-        Button filterButton = rootView.findViewById(R.id.button_Filter);
+        filterButton = rootView.findViewById(R.id.button_Filter);
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,6 +60,13 @@ public class BrowseBooksFragment extends Fragment {
                 args.putParcelableArrayList("bookList", (ArrayList<? extends Parcelable>) list);
                 filterFragment.setArguments(args);
                 filterFragment.show(getChildFragmentManager(), "FilterDialog");
+            }
+        });
+        clear_FilterButton = rootView.findViewById(R.id.button_Clear);
+        clear_FilterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                booksAdapter.updateDataset(list);
             }
         });
 

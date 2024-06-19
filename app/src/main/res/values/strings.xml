@@ -3,4 +3,6 @@
     <string name="books">Books</string>
     <string name="my_list">My List</string>
     <string name="add">Add Book to my list</string>
+    <string name="filter_books">Filter Books</string>
+    <string name="clear">Clear</string>
 </resources>
