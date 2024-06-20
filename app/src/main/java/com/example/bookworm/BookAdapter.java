@@ -9,37 +9,78 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
 
-    private List<Book> books;
-    private final Context context;
+    private static BookAdapter instance = null;
+    private List<Book> allBooks; // list of all books
+    private List<Book> displayedBooks; // list of currently displayed books
 
-    public BookAdapter(List<Book> books, Context context) {
-        this.books = books;
-        this.context = context;
+    private BookAdapter() {
+        this.allBooks = createList(10);
+        this.displayedBooks = new ArrayList<>(allBooks); // initially display all books
     }
+
+    public static BookAdapter getInstance() {
+        if (instance == null) {
+            instance = new BookAdapter();
+        }
+        return instance;
+    }
+    public List<Book> getAllBooks() {
+        return allBooks;
+    }
+
+    public List<String> getAuthors() {
+        List<String> authors = new ArrayList<>();
+        for (Book book : allBooks) {
+            authors.add(book.getAuthor());
+        }
+        return authors;
+    }
+
+    private List<Book> createList(int size) {
+        List<Book> result = new ArrayList<>();
+        for (int i=1; i <= size; i++) {
+            Book b = new Book();
+            b.setTitle(i + "asdasd");
+            b.setAuthor(i + "asdasd");
+            b.setImageResource(R.drawable.logo_temp);
+
+            result.add(b);
+        }
+
+        return result;
+    }
+
     public void updateDataset(List<Book> newBooksList) {
-        books = newBooksList;
+        displayedBooks = newBooksList;
         notifyDataSetChanged();
     }
 
     @Override
     public int getItemCount() {
-        return books.size();
+        return displayedBooks.size();
     }
 
     @Override
     public void onBindViewHolder(BookViewHolder bookViewHolder, int position) {
-        Book book = books.get(position);
+        Book book = displayedBooks.get(position);
         bookViewHolder.setData(book);
     }
+
 
     @Override
     public BookViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.book_item, viewGroup, false);
         return new BookViewHolder(itemView);
+    }
+
+    public List<Book> getFullBooksList() {
+        return createList(10);
     }
 
     public static class BookViewHolder extends RecyclerView.ViewHolder {
@@ -71,4 +112,6 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             book_author.setText(b.getAuthor());
         }
     }
+
+
 }

@@ -23,8 +23,7 @@ public class MyListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         // Initialize myList and booksAdapter
-        myList = new ArrayList<>();
-        booksAdapter = new BookAdapter(myList, this);
+        BookAdapter booksAdapter = BookAdapter.getInstance();
 
         // Set the adapter for the RecyclerView
         recyclerView.setAdapter(booksAdapter);
