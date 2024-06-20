@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -79,8 +80,9 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
                 UserBookList userBookList = UserBookList.getInstance();
                 // Add the book to the userBookList
                 userBookList.addUserBook(book);
-                Intent intent = new Intent(view.getContext(), MyListActivity.class);
-                view.getContext().startActivity(intent);
+//                Intent intent = new Intent(view.getContext(), MyListActivity.class);
+//                view.getContext().startActivity(intent);
+                Toast.makeText(view.getContext(), "The book '"+book.getTitle() +"' was added to your list", Toast.LENGTH_LONG).show();
 
             }
         });
