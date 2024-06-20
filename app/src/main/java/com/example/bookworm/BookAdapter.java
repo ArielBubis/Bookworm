@@ -19,17 +19,11 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     private List<Book> allBooks; // list of all books
     private List<Book> displayedBooks; // list of currently displayed books
 
-    private BookAdapter() {
+    public BookAdapter() {
         this.allBooks = createList(10);
         this.displayedBooks = new ArrayList<>(allBooks); // initially display all books
     }
 
-    public static BookAdapter getInstance() {
-        if (instance == null) {
-            instance = new BookAdapter();
-        }
-        return instance;
-    }
     public List<Book> getAllBooks() {
         return allBooks;
     }
@@ -56,6 +50,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         return result;
     }
 
+
     public void updateDataset(List<Book> newBooksList) {
         displayedBooks = newBooksList;
         notifyDataSetChanged();
@@ -81,6 +76,16 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
 
     public List<Book> getFullBooksList() {
         return createList(10);
+    }
+
+    public List<Book> filterBooksByAuthor(String selectedAuthor) {
+        List<Book> filteredBooks = new ArrayList<>();
+        for (Book book : allBooks) {
+            if (book.getAuthor().equals(selectedAuthor)) {
+                filteredBooks.add(book);
+            }
+        }
+        return filteredBooks;
     }
 
     public static class BookViewHolder extends RecyclerView.ViewHolder {

@@ -47,12 +47,7 @@ public class FilterBooksFragment extends DialogFragment {
 
                 // Filter the book list
                 List<Book> allBooks = booksAdapter.getAllBooks();
-                List<Book> filteredBooks = new ArrayList<>();
-                for (Book book : allBooks) {
-                    if (book.getAuthor().equals(selectedAuthor)) {
-                        filteredBooks.add(book);
-                    }
-                }
+                List<Book> filteredBooks = booksAdapter.filterBooksByAuthor(selectedAuthor);
 
                 // Call the listener
                 if (listener != null) {

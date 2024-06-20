@@ -2,7 +2,6 @@ package com.example.bookworm;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -12,12 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class BrowseBooksActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
-    private BookAdapter booksAdapter; // This is a field of the class
+    private BookAdapter booksAdapter;
 
     private Button filterButton;
     private Button clear_FilterButton;
@@ -36,7 +34,7 @@ public class BrowseBooksActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(llm);
 
         // Initialize booksAdapter
-        booksAdapter = BookAdapter.getInstance(); // Initialize the field here
+        booksAdapter = new BookAdapter(); // Initialize the field here
         recyclerView.setAdapter(booksAdapter);
 
         // Inside your BrowseBooksActivity
