@@ -3,8 +3,9 @@
     <style name="Base.Theme.BookWorm" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/teal</item>
         <item name="colorPrimaryDark">@color/teal</item>
-        <item name="colorAccent">@color/orange</item>
+        <item name="colorAccent">@color/darkTeal</item>
         <item name="android:windowBackground">@drawable/gradient_background</item>
+
     </style>
 
     <style name="Theme.BookWorm" parent="Base.Theme.BookWorm" />

@@ -12,6 +12,7 @@ package com.example.bookworm;
 
         import java.util.ArrayList;
         import java.util.List;
+        import java.util.Set;
 
 public class FilterBooksFragment extends DialogFragment {
     private Spinner authorSpinner;
@@ -27,13 +28,11 @@ public class FilterBooksFragment extends DialogFragment {
         authorSpinner = rootView.findViewById(R.id.authorSpinner);
         okButton = rootView.findViewById(R.id.okButton);
         // Get the list of books from the arguments
-        List<String> authors = booksAdapter.getAuthors();
-
-        // Add default text to the beginning of the list
-        authors.add(0, "Select an author");
+        Set<String> authors = booksAdapter.getAuthors();
+        List<String> authorsList = new ArrayList<>(authors);
 
         // Create an ArrayAdapter using the list of authors
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, authors);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, authorsList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // Apply the adapter to the spinner

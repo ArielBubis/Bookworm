@@ -17,6 +17,8 @@ public class BrowseBooksActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private BookAdapter booksAdapter;
 
+    private Button myListButton;
+
     private Button filterButton;
     private Button clear_FilterButton;
 
@@ -71,6 +73,15 @@ public class BrowseBooksActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(BrowseBooksActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        myListButton = findViewById(R.id.myListButton);
+        myListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BrowseBooksActivity.this, MyListActivity.class);
                 startActivity(intent);
             }
         });

@@ -11,14 +11,22 @@ public class Book {
     private int imageResource;
     private Date expectedReturnDate;
 
-    protected Book() {
-        title = "test";
-        author = "test";
-        imageResource = R.id.book_image;
-        expectedReturnDate  = null;
-    }
+//    public Book() {
+//        title = "test";
+//        author = "test";
+//        imageResource = R.drawable.logo_temp;
+//        expectedReturnDate  = new Date(3000,1,1);
+//    }
     public Date getExpectedReturnDate() {
         return expectedReturnDate;
+    }
+
+    public Book(String title, String author) {
+        this.title = title;
+        this.author = author;
+        imageResource = R.drawable.logo_temp;
+        expectedReturnDate  = new Date(3000,1,1);
+
     }
 
     public void setExpectedReturnDate(Date expectedReturnDate) {

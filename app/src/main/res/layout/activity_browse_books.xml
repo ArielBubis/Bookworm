@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BrowseBooksActivity"
-    >
+    tools:context=".BrowseBooksActivity">
 
     <include
         layout="@layout/header_layout"
@@ -16,16 +15,14 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginRight="10dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        >
-
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/button_Filter"
@@ -33,7 +30,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
-            android:text="@string/filter_books" />
+            android:padding="16dp"
+            android:text="@string/filter_books"
+            />
 
         <Space
             android:layout_width="wrap_content"
@@ -46,6 +45,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="2dp"
+            android:padding="16dp"
             android:text="@string/clear" />
     </LinearLayout>
 
@@ -55,9 +55,7 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-
-        />
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="16dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
