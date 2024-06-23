@@ -13,17 +13,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+/**
+ * This class represents the activity where users can browse books.
+ */
 public class BrowseBooksActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private BookAdapter booksAdapter;
+    private RecyclerView recyclerView; // The RecyclerView that displays the books
+    private BookAdapter booksAdapter; // The adapter for the RecyclerView
 
-    private Button myListButton;
+    private Button myListButton; // The button that takes the user to their list of books
 
-    private Button filterButton;
-    private Button clear_FilterButton;
+    private Button filterButton; // The button that opens the filter dialog
+    private Button clear_FilterButton; // The button that clears the current filter
 
-    private TextView appName;
+    private TextView appName; // The TextView that displays the name of the app
 
+    /**
+     * This method is called when the activity is created.
+     * It initializes the RecyclerView, the BookAdapter, and the buttons.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +46,7 @@ public class BrowseBooksActivity extends AppCompatActivity {
         booksAdapter = new BookAdapter(); // Initialize the field here
         recyclerView.setAdapter(booksAdapter);
 
-        // Inside your BrowseBooksActivity
+        // Set up the filter button
         filterButton = findViewById(R.id.button_Filter);
         filterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +65,8 @@ public class BrowseBooksActivity extends AppCompatActivity {
                 filterFragment.show(getSupportFragmentManager(), "FilterBooksFragment");
             }
         });
+
+        // Set up the clear filter button
         clear_FilterButton = findViewById(R.id.button_Clear);
         clear_FilterButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +77,7 @@ public class BrowseBooksActivity extends AppCompatActivity {
             }
         });
 
+        // Set up the app name TextView
         appName = findViewById(R.id.appName);
         appName.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +87,7 @@ public class BrowseBooksActivity extends AppCompatActivity {
             }
         });
 
+        // Set up the my list button
         myListButton = findViewById(R.id.myListButton);
         myListButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,5 +97,4 @@ public class BrowseBooksActivity extends AppCompatActivity {
             }
         });
     }
-
 }

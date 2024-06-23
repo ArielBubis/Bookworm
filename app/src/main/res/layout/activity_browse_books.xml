@@ -4,19 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BrowseBooksActivity">
+    tools:context=".BrowseBooksActivity"> <!-- This tells us that this layout is used by the BrowseBooksActivity -->
 
+
+    <!-- Includes the header layout -->
     <include
         layout="@layout/header_layout"
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
+    <!-- LinearLayout for filter and clear buttons -->
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:layout_marginRight="10dp"
         android:gravity="center_horizontal"
         android:orientation="horizontal"
@@ -24,6 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <!-- Filter button -->
         <Button
             android:id="@+id/button_Filter"
             android:layout_width="wrap_content"
@@ -34,11 +38,13 @@
             android:text="@string/filter_books"
             />
 
+        <!-- Space between buttons -->
         <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
 
+        <!-- Clear button -->
         <Button
             android:id="@+id/button_Clear"
             android:layout_width="wrap_content"
@@ -49,6 +55,7 @@
             android:text="@string/clear" />
     </LinearLayout>
 
+    <!-- RecyclerView for displaying books -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

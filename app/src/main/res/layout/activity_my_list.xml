@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BrowseBooksActivity">
+    tools:context=".MyListActivity"> <!-- Used by MyListActivity -->
 
+    <!-- Includes the header layout -->
     <include layout="@layout/header_layout"/>
 
+    <!-- RecyclerView for displaying user's book list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         />
 
 </RelativeLayout>

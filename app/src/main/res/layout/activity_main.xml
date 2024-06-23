@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    >
+    tools:context=".MainActivity"> <!-- Used by MainActivity -->
 
+    <!-- Welcome message -->
     <TextView
         android:id="@+id/welcomeMsg"
         android:layout_width="match_parent"
@@ -18,6 +18,7 @@
         android:layout_marginTop="60dp"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- App name -->
     <TextView
         android:id="@+id/appName"
         android:layout_width="match_parent"
@@ -29,6 +30,7 @@
         android:layout_marginTop="110dp"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Library logo -->
     <ImageView
         android:id="@+id/library_logo"
         android:layout_width="365dp"
@@ -39,6 +41,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Browse books button -->
     <Button
         android:id="@+id/browseBooksButton"
         android:layout_width="0dp"
@@ -50,9 +53,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp"
         android:textSize="20sp"
-
         />
 
+    <!-- My list button -->
     <Button
         android:id="@+id/myListButton"
         android:layout_width="0dp"
@@ -64,7 +67,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_margin="20dp"
         android:textSize="20sp"
-
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

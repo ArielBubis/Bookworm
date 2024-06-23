@@ -7,14 +7,15 @@
     card_view:cardCornerRadius="24dp"
     card_view:cardElevation="8dp">
 
+    <!-- Layout for each list item, used by ListAdapter -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:gravity="center"
-        >
+        android:gravity="center">
 
+        <!-- Book title -->
         <TextView
             android:id="@+id/book_title"
             android:layout_width="match_parent"
@@ -22,6 +23,7 @@
             android:textSize="18sp"
             android:textStyle="bold" />
 
+        <!-- Book author -->
         <TextView
             android:id="@+id/book_author"
             android:layout_width="match_parent"
@@ -29,6 +31,7 @@
             android:textSize="16sp"
             android:layout_marginTop="4dp" />
 
+        <!-- Expected return date -->
         <DatePicker
             android:id="@+id/expected_return_date"
             android:layout_width="wrap_content"
@@ -36,6 +39,7 @@
             android:layout_marginTop="8dp"
             />
 
+        <!-- Set reminder button -->
         <Button
             android:id="@+id/button_set_reminder"
             android:layout_width="match_parent"

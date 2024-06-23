@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".FilterBooksFragment"
-    >
-    <!-- res/layout/fragment_filter_books.xml -->
+    tools:context=".FilterBooksFragment"> <!-- Used by FilterBooksFragment -->
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="16dp"
-        >
+        android:padding="16dp">
 
-        <!-- Spinner for selecting author -->
+        <!-- Text view for "Choose author" label -->
         <TextView
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Choose author" />
+            android:text="@string/choose_author" />
 
+        <!-- Spinner for author selection -->
         <Spinner
             android:id="@+id/authorSpinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:minHeight="35dp"
-            android:layout_margin="16dp"
-            />
-        <!-- OK button to apply filter -->
+            android:minHeight="48dp"
+            android:layout_margin="16dp" />
+
+        <!-- Button to apply the filter -->
         <Button
             android:id="@+id/okButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="OK"
+            android:text="@string/ok"
             android:layout_gravity="center" />
 
     </LinearLayout>

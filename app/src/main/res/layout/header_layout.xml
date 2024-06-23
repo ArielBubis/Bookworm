@@ -1,49 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- This layout is a header for all the activities but the mainActivity. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/white">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal"
-        android:background="@color/white"
+    <!-- App name -->
+    <TextView
+        android:id="@+id/appName"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="@string/app_name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center|start"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
 
-        >
+    <!-- Button to navigate to BrowseBooksActivity -->
+    <Button
+        android:id="@+id/browseBooksButton"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/books"
+        android:textSize="18sp"
+        style="?android:attr/buttonBarButtonStyle"
+        />
 
-        <TextView
-            android:id="@+id/appName"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="@string/app_name"
-            android:textSize="35sp"
-            android:textStyle="bold"
-            android:gravity="center|left"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-
-            />
-
-        <Button
-            android:id="@+id/browseBooksButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/books"
-            android:textSize="20sp"
-            style="?android:attr/buttonBarButtonStyle"
-
-            />
-
-        <Button
-            android:id="@+id/myListButton"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="@string/my_list"
-            android:textSize="20sp"
-            style="?android:attr/buttonBarButtonStyle" />
-    </LinearLayout>
+    <!-- Button to navigate to MyListActivity -->
+    <Button
+        android:id="@+id/myListButton"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="@string/my_list"
+        android:textSize="18sp"
+        style="?android:attr/buttonBarButtonStyle" />
 
 </LinearLayout>
