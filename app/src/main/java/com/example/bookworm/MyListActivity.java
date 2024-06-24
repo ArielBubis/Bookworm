@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -70,12 +71,14 @@ public class MyListActivity extends AppCompatActivity {
             }
         });
 
-        // Check if any books are late
+// Check if any books are late
         for (Book book : UserBookList.getInstance().getUserBooks()) {
-            if (new Date().after(book.getExpectedReturnDate())) {
+            Calendar currentDate = Calendar.getInstance();
+            if (currentDate.after(book.getExpectedReturnDate())) {
                 // If a book is late, show a Toast message
-                Toast.makeText(this, "LATE!! The book "+book.getTitle()+" was supposed to be returned on: " + book.getExpectedReturnDate(), Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "LATE!! The book " + book.getTitle() + " was supposed to be returned on: " + book.getExpectedReturnDate().getTime(), Toast.LENGTH_LONG).show();
             }
         }
+
     }
 }

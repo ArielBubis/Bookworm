@@ -3,6 +3,7 @@ package com.example.bookworm;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Calendar;
 import java.util.Date;
 /**
  * This class represents a book with a title, author, image resource, and expected return date.
@@ -11,7 +12,7 @@ public class Book {
     private String title; // The title of the book
     private String author; // The author of the book
     private int imageResource; // The resource ID of the book's image
-    private Date expectedReturnDate; // The expected return date of the book
+    private Calendar expectedReturnDate; // The expected return date of the book
 
 //    public Book() {
 //        title = "test";
@@ -28,21 +29,20 @@ public class Book {
         this.title = title;
         this.author = author;
         imageResource = R.drawable.logo_temp;
-        expectedReturnDate  = new Date(3000,1,1);
-
+        expectedReturnDate = Calendar.getInstance();
     }
 
     /**
      * Returns the expected return date of the book.
      */
-    public Date getExpectedReturnDate() {
+    public Calendar getExpectedReturnDate() {
         return expectedReturnDate;
     }
 
     /**
      * Sets the expected return date of the book.
      */
-    public void setExpectedReturnDate(Date expectedReturnDate) {
+    public void setExpectedReturnDate(Calendar expectedReturnDate) {
         this.expectedReturnDate = expectedReturnDate;
     }
 

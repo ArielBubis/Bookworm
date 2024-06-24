@@ -51,6 +51,9 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
         Book book = books.get(position);
         holder.bookTitle.setText(book.getTitle());
         holder.bookAuthor.setText(book.getAuthor());
+
+        holder.expectedReturnDate.updateDate(book.getExpectedReturnDate().get(Calendar.YEAR), book.getExpectedReturnDate().get(Calendar.MONTH), book.getExpectedReturnDate().get(Calendar.DAY_OF_MONTH));
+
         // Set the DatePicker and Button for the expected return date
         holder.setReminderButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,18 +62,19 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ListViewHolder
                 int month = holder.expectedReturnDate.getMonth();
                 int year = holder.expectedReturnDate.getYear();
 
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(year, month, day);
+                Calendar cal = Calendar.getInstance();
+                cal.set(year, month, day);
 
-                Date date = calendar.getTime();
+//                Calendar date = calendar.getTime();
 
                 // Set the expectedReturnDate of the book
-                book.setExpectedReturnDate(date);
+                book.setExpectedReturnDate(cal);
 
                 // Show a Toast message
-                Toast.makeText(v.getContext(), "The book is set to be returned on: " + date, Toast.LENGTH_LONG).show();
+                Toast.makeText(v.getContext(), "The book is set to be returned on: " + cal.getTime(), Toast.LENGTH_LONG).show();
 
                 holder.expectedReturnDate.setClickable(false);
+                holder.expectedReturnDate.updateDate(cal.get(Calendar.YEAR), cal.get(Calendar.MONTH), cal.get(Calendar.DAY_OF_MONTH));
 
                 // Notify the adapter that the data has changed
                 notifyDataSetChanged();
